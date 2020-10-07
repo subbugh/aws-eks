@@ -1,0 +1,248 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\svemala>
+>> Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+>>
+>>
+Getting latest version of the Chocolatey package for download.
+Getting Chocolatey from https://chocolatey.org/api/v2/package/chocolatey/0.10.15.
+Extracting C:\Users\svemala\AppData\Local\Temp\chocolatey\chocInstall\chocolatey.zip to C:\Users\svemala\AppData\Local\Temp\chocolatey\chocInstall...
+Installing chocolatey on this machine
+Creating ChocolateyInstall as an environment variable (targeting 'Machine')
+  Setting ChocolateyInstall to 'C:\ProgramData\chocolatey'
+WARNING: It's very likely you will need to close and reopen your shell
+  before you can use choco.
+Restricting write permissions to Administrators
+We are setting up the Chocolatey package repository.
+The packages themselves go to 'C:\ProgramData\chocolatey\lib'
+  (i.e. C:\ProgramData\chocolatey\lib\yourPackageName).
+A shim file for the command line goes to 'C:\ProgramData\chocolatey\bin'
+  and points to an executable in 'C:\ProgramData\chocolatey\lib\yourPackageName'.
+
+Creating Chocolatey folders if they do not already exist.
+
+WARNING: You can safely ignore errors related to missing log files when
+  upgrading from a version of Chocolatey less than 0.9.9.
+  'Batch file could not be found' is also safe to ignore.
+  'The system cannot find the file specified' - also safe.
+chocolatey.nupkg file not installed in lib.
+ Attempting to locate it from bootstrapper.
+PATH environment variable does not have C:\ProgramData\chocolatey\bin in it. Adding...
+WARNING: Not setting tab completion: Profile file does not exist at
+'C:\Users\svemala\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'.
+Chocolatey (choco.exe) is now ready.
+You can call choco from anywhere, command line or powershell by typing choco.
+Run choco /? for a list of functions.
+You may need to shut down and restart powershell and/or consoles
+ first prior to using choco.
+Ensuring chocolatey commands are on the path
+Ensuring chocolatey.nupkg is in the lib folder
+PS C:\Users\svemala> chocolatey install -y eksctl
+Chocolatey v0.10.15
+Installing the following packages:
+eksctl
+By installing you accept licenses for the packages.
+Progress: Downloading eksctl 0.29.1... 100%
+
+eksctl v0.29.1 [Approved]
+eksctl package files install completed. Performing other installation steps.
+eksctl is going to be installed in 'C:\ProgramData\chocolatey\lib\eksctl\tools'
+Downloading eksctl 64 bit
+  from 'https://github.com/weaveworks/eksctl/releases/download/0.29.1/eksctl_Windows_amd64.zip'
+Progress: 100% - Completed download of C:\Users\svemala\AppData\Local\Temp\chocolatey\eksctl\0.29.1\eksctl_Windows_amd64.zip (19.41 MB).
+Download of eksctl_Windows_amd64.zip (19.41 MB) completed.
+Hashes match.
+Extracting C:\Users\svemala\AppData\Local\Temp\chocolatey\eksctl\0.29.1\eksctl_Windows_amd64.zip to C:\ProgramData\chocolatey\lib\eksctl\tools...
+C:\ProgramData\chocolatey\lib\eksctl\tools
+ ShimGen has successfully created a shim for eksctl.exe
+ The install of eksctl was successful.
+  Software installed to 'C:\ProgramData\chocolatey\lib\eksctl\tools'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Enjoy using Chocolatey? Explore more amazing features to take your
+experience to the next level at
+ https://chocolatey.org/compare
+PS C:\Users\svemala> eksctl version
+0.29.1
+PS C:\Users\svemala> choco install -y aws-iam-authenticator
+Chocolatey v0.10.15
+Installing the following packages:
+aws-iam-authenticator
+By installing you accept licenses for the packages.
+Progress: Downloading aws-iam-authenticator 0.5.1... 100%
+
+aws-iam-authenticator v0.5.1 [Approved]
+aws-iam-authenticator package files install completed. Performing other installation steps.
+Downloading aws-iam-authenticator 64 bit
+  from 'https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.5.1/aws-iam-authenticator_0.5.1_windows_amd64.exe'
+Progress: 100% - Completed download of C:\ProgramData\chocolatey\lib\aws-iam-authenticator\tools\aws-iam-authenticator.exe (38.14 MB).
+Download of aws-iam-authenticator.exe (38.14 MB) completed.
+Hashes match.
+C:\ProgramData\chocolatey\lib\aws-iam-authenticator\tools\aws-iam-authenticator.exe
+ ShimGen has successfully created a shim for aws-iam-authenticator.exe
+ The install of aws-iam-authenticator was successful.
+  Software install location not explicitly set, could be in package or
+  default install location if installer.
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Enjoy using Chocolatey? Explore more amazing features to take your
+experience to the next level at
+ https://chocolatey.org/compare
+PS C:\Users\svemala> aws-iam-authenticator help
+A tool to authenticate to Kubernetes using AWS IAM credentials
+
+Usage:
+  aws-iam-authenticator [command]
+
+Available Commands:
+  help        Help about any command
+  init        Pre-generate certificate, private key, and kubeconfig files for the server.
+  server      Run a webhook validation server suitable that validates tokens using AWS IAM
+  token       Authenticate using AWS IAM and get token for Kubernetes
+  verify      Verify a token for debugging purpose
+  version     Version will output the current build information
+
+Flags:
+  -i, --cluster-id ID                 Specify the cluster ID, a unique-per-cluster identifier for your aws-iam-authenticator installation.
+  -c, --config filename               Load configuration from filename
+      --feature-gates mapStringBool   A set of key=value pairs that describe feature gates for alpha/experimental features. Options are:
+                                      AllAlpha=true|false (ALPHA - default=false)
+                                      IAMIdentityMappingCRD=true|false (ALPHA - default=false)
+  -h, --help                          help for aws-iam-authenticator
+  -l, --log-format string             Specify log format to use when logging to stderr [text or json] (default "text")
+
+Use "aws-iam-authenticator [command] --help" for more information about a command.
+PS C:\Users\svemala> aws --version
+aws-cli/1.18.133 Python/3.6.0 Windows/10 botocore/1.17.56
+PS C:\Users\svemala> aws eks update-kubeconfig --name SubbuEKSCluster
+Added new context arn:aws:eks:us-east-1:112253241392:cluster/SubbuEKSCluster to C:\Users\svemala\.kube\config
+PS C:\Users\svemala> kubectl get nodes
+No resources found in default namespace.
+PS C:\Users\svemala> kubectl apply -f wnode-ekscluster-configmap.yaml
+error: the path "wnode-ekscluster-configmap.yaml" does not exist
+PS C:\Users\svemala> kubectl apply -f wnode-ekscluster-configmap.yaml
+configmap/aws-auth created
+PS C:\Users\svemala> kubectl get nodes
+NAME                              STATUS   ROLES    AGE     VERSION
+ip-192-168-237-199.ec2.internal   Ready    <none>   6m34s   v1.17.11-eks-cfdc40
+ip-192-168-242-226.ec2.internal   Ready    <none>   6m36s   v1.17.11-eks-cfdc40
+ip-192-168-25-115.ec2.internal    Ready    <none>   6m37s   v1.17.11-eks-cfdc40
+PS C:\Users\svemala> kubectl create namespace my-namespace
+namespace/my-namespace created
+PS C:\Users\svemala> kubectl apply -f aws-eks-sample.yaml
+service/my-service created
+deployment.apps/my-deployment created
+PS C:\Users\svemala> kubectl get all -n my-namespace
+NAME                                 READY   STATUS    RESTARTS   AGE
+pod/my-deployment-65dcf7d447-6b5xh   1/1     Running   0          2m12s
+pod/my-deployment-65dcf7d447-r6x87   1/1     Running   0          2m12s
+pod/my-deployment-65dcf7d447-r9bm5   1/1     Running   0          2m12s
+
+NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+service/my-service   ClusterIP   10.100.208.68   <none>        80/TCP    2m13s
+
+NAME                            READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/my-deployment   3/3     3            3           2m13s
+
+NAME                                       DESIRED   CURRENT   READY   AGE
+replicaset.apps/my-deployment-65dcf7d447   3         3         3       2m13s
+PS C:\Users\svemala> kubectl -n <my-namespace> describe service my-service
+At line:1 char:12
++ kubectl -n <my-namespace> describe service my-service
++            ~
+The '<' operator is reserved for future use.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : RedirectionNotSupported
+
+PS C:\Users\svemala> kubectl -n my-namespace describe service my-service
+Name:              my-service
+Namespace:         my-namespace
+Labels:            app=my-app
+Annotations:       Selector:  app=my-app
+Type:              ClusterIP
+IP:                10.100.208.68
+Port:              <unset>  80/TCP
+TargetPort:        80/TCP
+Endpoints:         192.168.229.142:80,192.168.230.108:80,192.168.28.128:80
+Session Affinity:  None
+Events:            <none>
+PS C:\Users\svemala> kubectl -n my-namespace describe pod my-deployment-65dcf7d447-6b5xh
+Name:         my-deployment-65dcf7d447-6b5xh
+Namespace:    my-namespace
+Priority:     0
+Node:         ip-192-168-237-199.ec2.internal/192.168.237.199
+Start Time:   Wed, 07 Oct 2020 16:59:36 +0530
+Labels:       app=my-app
+              pod-template-hash=65dcf7d447
+Annotations:  kubernetes.io/psp: eks.privileged
+Status:       Running
+IP:           192.168.229.142
+IPs:
+  IP:           192.168.229.142
+Controlled By:  ReplicaSet/my-deployment-65dcf7d447
+Containers:
+  nginx:
+    Container ID:   docker://9638d6778308ce1215bd874db7eea080b80e5edc81369ef101c18de1d446b820
+    Image:          nginx:1.19.2
+    Image ID:       docker-pullable://nginx@sha256:c628b67d21744fce822d22fdcc0389f6bd763daac23a6b77147d0712ea7102d0
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Wed, 07 Oct 2020 16:59:42 +0530
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-277v5 (ro)
+Conditions:
+  Type              Status
+  Initialized       True
+  Ready             True
+  ContainersReady   True
+  PodScheduled      True
+Volumes:
+  default-token-277v5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-277v5
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age   From                                      Message
+  ----    ------     ----  ----                                      -------
+  Normal  Scheduled  13m   default-scheduler                         Successfully assigned my-namespace/my-deployment-65dcf7d447-6b5xh to ip-192-168-237-199.ec2.internal
+  Normal  Pulling    13m   kubelet, ip-192-168-237-199.ec2.internal  Pulling image "nginx:1.19.2"
+  Normal  Pulled     13m   kubelet, ip-192-168-237-199.ec2.internal  Successfully pulled image "nginx:1.19.2"
+  Normal  Created    13m   kubelet, ip-192-168-237-199.ec2.internal  Created container nginx
+  Normal  Started    13m   kubelet, ip-192-168-237-199.ec2.internal  Started container nginx
+PS C:\Users\svemala> kubectl exec -it my-deployment-65dcf7d447-6b5xh -n my-namespace -- /bin/bash
+root@my-deployment-65dcf7d447-6b5xh:/# cat /etc/resolv.conf
+nameserver 10.100.0.10
+search my-namespace.svc.cluster.local svc.cluster.local cluster.local ec2.internal
+options ndots:5
+root@my-deployment-65dcf7d447-6b5xh:/# ^C
+root@my-deployment-65dcf7d447-6b5xh:/# exit
+exit
+command terminated with exit code 130
+PS C:\Users\svemala> kubectl get services -o wide
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE     SELECTOR
+kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   3h56m   <none>
+PS C:\Users\svemala> kubectl describe svc my-service
+Error from server (NotFound): services "my-service" not found
+PS C:\Users\svemala> kubectl get services
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   4h12m
+PS C:\Users\svemala> kubectl create -f aws-eks-sample.yaml
+Error from server (AlreadyExists): error when creating "aws-eks-sample.yaml": services "my-service" already exists
+Error from server (AlreadyExists): error when creating "aws-eks-sample.yaml": deployments.apps "my-deployment" already exists
+PS C:\Users\svemala> kubectl get services
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.100.0.1   <none>        443/TCP   4h38m
+PS C:\Users\svemala> 
