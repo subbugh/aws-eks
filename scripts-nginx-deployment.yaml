@@ -1,0 +1,23 @@
+# Create a Deployment based on the YAML file:
+ kubectl apply -f deployment.yaml
+ 
+# Display information about the Deployment:
+ kubectl describe deployment nginx-deployment
+ 
+# List the Pods created by the deployment:
+ kubectl get pods -l app=nginx
+ 
+# Display information about a Pod:
+ kubectl describe pod <pod-name>
+ 
+# Updating the deployment
+ kubectl apply -f deployment-update.yaml
+ 
+# Scaling the application by increasing the replica count 
+ kubectl apply -f deployment-scale.yaml
+ 
+# Delete the deployment by name:
+kubectl delete deployment nginx-deployment
+
+Chrome Browser
+<aws-ARN>:80
