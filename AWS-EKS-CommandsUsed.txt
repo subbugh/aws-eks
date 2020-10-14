@@ -1,0 +1,28 @@
+# Install kubectl:
+curl -o kubectl.exe https://amazon-eks.s3.us-west-2.amazonaws.com/1.17.9/2020-08-04/bin/windows/amd
+
+# Install eksctl:
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+# Install Chocolatey :
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+# Installing eksctl:
+chocolatey install -y eksctl
+eksctl version
+
+# Check for the correct installtion of aws-iam-authenticator:
+aws-iam-authenticator help
+
+# Check for the correct installation of AWS CLI:
+aws --version
+
+# Add Our AWS Cluster to the Kubectl config file:
+aws eks update-kubeconfig --name SubbuEKSCluster
+
+# Check for the created nodes through the Kubectl:
+kubectl get nodes
+
+# Map the Worker nodes, with the EKS Cluster:
+kubectl apply -f wnode-ekscluster-configmap.yaml
+kubectl get nodes
